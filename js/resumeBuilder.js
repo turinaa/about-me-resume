@@ -1,28 +1,3 @@
-var education ={
-	"schools":[
-		{
-	         "name": "Centro Tecnológico Positivo"
-	        ,"location": "Curitiba, PR, Brasil"
-	        ,"degree": "Associate Degree"
-	        ,"majors": "Analysis and Systems Development"
-	        ,"dates": 2014
-	        ,"url": "www.ctup.edu.br"
-
-		}
-
-	]
-	,"onlineCourses":[
-		{
-			"title": "JavaScript Basics"
-            ,"school": "Udacity"
-            ,"date": 2016
-            ,"url": "www.udacity.com"
-		}
-	]
-
-};
-
-
 var bio = {
 	 "name":"André Negrini Turina"
 	,"role":"Web Developer"
@@ -35,23 +10,59 @@ var bio = {
 	,"welcomeMessage":"Hello Internet"
 	,"skills":["A","B"]
 	,"biopic":"images/fry.jpg"
-
 };
 
-
-var work = {
-	"jobs":[
+var education ={
+	"schools":[
 		{
-			"employer":"HSBC Bank"
-			,"title":"Financial Specialyst"
-			,"location":"Curitiba, PR, Brazil"
-			,"dates":"2009"
-			,"description":"cnnuifisnfuirnfinfukefgiefui5usgnf5ien5eiged"
+	         "name": "Centro Tecnológico Positivo"
+	        ,"location": "Curitiba, PR, Brasil"
+	        ,"degree": "Associate Degree"
+	        ,"majors": "Systems Analysis and Development"
+	        ,"dates": 2014
+	        ,"url": "www.ctup.edu.br"
+
+		}
+
+	]
+	,
+	"onlineCourses":[
+		{
+			"title": "JavaScript Basics"
+            ,"school": "Udacity"
+            ,"date": 2016
+            ,"url": "www.udacity.com"
 		}
 	]
 };
 
-
+var work = {
+	"jobs": [
+		{
+			"employer": "HSBC Bank",
+			"title": "Financial Specialyst",
+			"location": "Curitiba, PR, Brazil",
+			"dates": "September 2009 - Current",
+			"description": "Create and maintain reports using IBM Cognos Report Studio and IBM Cognos TM1<br>Create and maintain dimensional data model in Oracle<br>Developer ETL process using SQLPLUS and BatchScript<br>Create and maintain intranet web pages using.Net, javascript, JQuery<br>Improve timeefficient in PLSQL process of financial calculation "
+		}
+		, 
+		{
+			"employer": "GVT Telecom",
+			"title": "Market Analyst",
+			"location": "Curitiba, PR, Brazil",
+			"dates": "April 2008 - August 2009",
+			"description": "Development processes that generate sales information for company executives<br>Implemented new analysis tools ( B.O. )<br>Development processes in low platform with MS Access and VBA<br>Develop VBA solution for Excel to final users, automation manual process"
+		}
+		,
+		{
+			"employer": "HSBC Bank",
+			"title": "Financial Analyst",
+			"location": "Curitiba, PR, Brazil",
+			"dates": "January 2007 - April 2008",
+			"description": "Control, generation and maintenance of financial information<br>Participation in development projects related to IT / Finance<br>Development and automation excel spreadsheets using VBA"
+		}		
+	]
+};
 
 var projects = {
 
@@ -72,36 +83,88 @@ var projects = {
 	]
 };
 
-//Make Header
-$("#header").append(HTMLheaderName.replace("%data%",bio.name));
-$("#header").append(HTMLheaderRole.replace("%data%",bio.role));
-$("#header").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
-$("#header").append(HTMLemail.replace("%data%",bio.contacts.email));
-$("#header").append(HTMLgithub.replace("%data%",bio.contacts.github));
-$("#header").append(HTMLlocation.replace("%data%",bio.contacts.locations));
 
-
-$("#header").append(HTMLcontactGeneric);
-
+//$("#header").append(HTMLcontactGeneric);
 $("#main").append(internationalizeButton);
 
+displayBio();
+displayWork();
+displaySchool();
+
+function displaySchool(){
+	var formattedSchoolStart 	= HTMLschoolStart
+	var formattedSchoolName 	= HTMLschoolName.replace("%data%", education.schools[0].name )
+	var formattedSchoolDegree 	= HTMLschoolDegree.replace("%data%", education.schools[0].degree)
+	var formattedSchoolDates 	= HTMLschoolDates.replace("%data%", education.schools[0].dates)
+	var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[0].location)
+	var formattedSchoolMajor 	= HTMLschoolMajor.replace("%data%", education.schools[0].majors)
+
+	$("#education").append(HTMLschoolStart);
+	$(".education-entry").append(formattedSchoolName);
+	$(".education-entry").append(formattedSchoolDegree);
+	$(".education-entry").append(formattedSchoolDates);
+	$(".education-entry").append(formattedSchoolLocation);
+	$(".education-entry").append(formattedSchoolMajor);
+}
+
+function displayBio(){
+	// *** BIO ***
+	//	* header
+	var formattedHeaderName = HTMLheaderName.replace("%data%",bio.name);
+	var formattedheaderRole = HTMLheaderRole.replace("%data%",bio.role);
+	$("#header").prepend(formattedheaderRole);
+	$("#header").prepend(formattedHeaderName);
+
+	//  * topContacts
+	var formattedContactGeneric = HTMLcontactGeneric;
+	var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+	//var formattedTwitter = HTMLtwitter
+	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
+	//var formattedBlog = HTMLblog
+	var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.locations);
+	$("#topContacts").append(formattedMobile);
+	$("#topContacts").append(formattedEmail);
+	$("#topContacts").append(formattedGithub);
+	$("#topContacts").append(formattedLocation);
+
+	//	* pic
+	var formattedBioPic = HTMLbioPic.replace("%data%",bio.biopic);
+	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+	$("#topContacts").after(formattedBioPic);
+	$("#topContacts").after(formattedWelcomeMsg);
+
+
+//var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
+//var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+
+
+	// * skills
+	var formattedSkillsStart = HTMLskillsStart;
+	$("#header").append(formattedSkillsStart);
+
+	var formattedSkills = HTMLskills.replace("%data%",bio.skills);
+	$("#skills").after(formattedSkills);
+
+}
+
 function displayWork(){
-
 	for (job in work.jobs){
-
 		//create div "work-entry"
 		$("#workExperience").append(HTMLworkStart);
-		
 
-		var formattedEmployer 		= HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedTitle 			= HTMLworkTitle.replace("%data%",work.jobs[job].title);
-		var formattedEmployerTitle 	= formattedEmployer + formattedTitle;
+		var formattedEmployer 			= HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTitle 				= HTMLworkTitle.replace("%data%" , work.jobs[job].title);
+		var formattedWorkDates 			= HTMLworkDates.replace("%data%" , work.jobs[job].dates)
+		var formattedWorkLocation 		= HTMLworkLocation.replace("%data%" , work.jobs[job].location);
+		var formattedWorkDescription 	= HTMLworkDescription.replace("%data%" , work.jobs[job].description);
+
+		var formattedEmployerTitle 		= formattedEmployer + formattedTitle;
 
 		$(".work-entry:last").append(formattedEmployerTitle);
-		
-		$(".work-entry:last").append(HTMLworkDates.replace("%data%",work.jobs[job].dates));
-		$(".work-entry:last").append(HTMLworkDescription.replace("%data%",work.jobs[job].description));
-
+		$(".work-entry:last").append(formattedWorkDates);
+		$(".work-entry:last").append(formattedWorkLocation);
+		$(".work-entry:last").append(formattedWorkDescription);
 	}
 }
 
@@ -127,9 +190,6 @@ function inName(strName){
 	return strNameFormatted;
 }
 
-inName('Andre Turina');
-
-displayWork();
 
 /*
 
