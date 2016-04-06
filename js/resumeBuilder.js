@@ -1,5 +1,5 @@
 var bio = {
-	 "name":"André Negrini Turina"
+	 "name":"André Turina"
 	,"role":"Web Developer"
 	,"contacts":{
 		 "mobile":"+55 41 99151243"
@@ -108,7 +108,7 @@ function displaySchool(){
 }
 
 function displayBio(){
-	// *** BIO ***
+
 	//	* header
 	var formattedHeaderName = HTMLheaderName.replace("%data%",bio.name);
 	var formattedheaderRole = HTMLheaderRole.replace("%data%",bio.role);
@@ -119,32 +119,30 @@ function displayBio(){
 	var formattedContactGeneric = HTMLcontactGeneric;
 	var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
 	var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
-	//var formattedTwitter = HTMLtwitter
 	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
-	//var formattedBlog = HTMLblog
 	var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.locations);
-	$("#topContacts").append(formattedMobile);
-	$("#topContacts").append(formattedEmail);
-	$("#topContacts").append(formattedGithub);
-	$("#topContacts").append(formattedLocation);
+	$("#topContacts:last").append(formattedMobile);
+	$("#topContacts:last").append(formattedEmail);
+	$("#topContacts:last").append(formattedGithub);
+	$("#topContacts:last").append(formattedLocation);
 
 	//	* pic
 	var formattedBioPic = HTMLbioPic.replace("%data%",bio.biopic);
+	$("#header:last").append(formattedBioPic);
+	// * Welcome message
 	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-	$("#topContacts").after(formattedBioPic);
-	$("#topContacts").after(formattedWelcomeMsg);
+	$("#header:last").append(formattedWelcomeMsg);
 
-
-//var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-//var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
-
-
-	// * skills
+	// * skills start
 	var formattedSkillsStart = HTMLskillsStart;
-	$("#header").append(formattedSkillsStart);
+	$("#header:last").append(formattedSkillsStart);
+	// * skills list
+	for (var i in bio.skills){
+		var formattedSkills = HTMLskills.replace( "%data%" , bio.skills[i] );
+		$("#skills").append(formattedSkills);
+	}
 
-	var formattedSkills = HTMLskills.replace("%data%",bio.skills);
-	$("#skills").after(formattedSkills);
+	
 
 }
 
