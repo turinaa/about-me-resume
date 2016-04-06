@@ -45,7 +45,7 @@ var work = {
 			"employer":"HSBC Bank"
 			,"title":"Financial Specialyst"
 			,"location":"Curitiba, PR, Brazil"
-			,"dates":2009
+			,"dates":"2009"
 			,"description":"cnnuifisnfuirnfinfukefgiefui5usgnf5ien5eiged"
 		}
 	]
@@ -72,30 +72,64 @@ var projects = {
 	]
 };
 
-
-for (job in work.jobs){
-	$("#workExperience").append(HTMLworkStart);
-
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+//Make Header
+$("#header").append(HTMLheaderName.replace("%data%",bio.name));
+$("#header").append(HTMLheaderRole.replace("%data%",bio.role));
+$("#header").append(HTMLmobile.replace("%data%",bio.contacts.mobile));
+$("#header").append(HTMLemail.replace("%data%",bio.contacts.email));
+$("#header").append(HTMLgithub.replace("%data%",bio.contacts.github));
+$("#header").append(HTMLlocation.replace("%data%",bio.contacts.locations));
 
 
+$("#header").append(HTMLcontactGeneric);
 
-	$(".work-entry:last").append(formattedEmployerTitle);
+$("#main").append(internationalizeButton);
 
+function displayWork(){
 
+	for (job in work.jobs){
 
+		//create div "work-entry"
+		$("#workExperience").append(HTMLworkStart);
+		
 
+		var formattedEmployer 		= HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTitle 			= HTMLworkTitle.replace("%data%",work.jobs[job].title);
+		var formattedEmployerTitle 	= formattedEmployer + formattedTitle;
+
+		$(".work-entry:last").append(formattedEmployerTitle);
+		
+		$(".work-entry:last").append(HTMLworkDates.replace("%data%",work.jobs[job].dates));
+		$(".work-entry:last").append(HTMLworkDescription.replace("%data%",work.jobs[job].description));
+
+	}
 }
 
+function inName(strName){
+	var strNameFormatted = "";
+	var splitName = strName.split(" ");
+	var max = splitName.length-1;
+	
+	for(name in splitName){
+		var strWord = splitName[name];
+		//First Name
+		if(name == 0){
+			strWord = strWord.substr(0,1).toUpperCase() + strWord.substr(1).toLowerCase();
+		}
+
+		//Last Name
+		if(name == max){ 
+			strWord = strWord.toUpperCase(); 
+		}
+
+		strNameFormatted = strNameFormatted + " " + strWord
+	}
+	return strNameFormatted;
+}
+
+inName('Andre Turina');
+
+displayWork();
 
 /*
 
