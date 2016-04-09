@@ -41,7 +41,7 @@ var work = {
 		{
 			"employer": "HSBC Bank",
 			"title": "Financial Specialyst",
-			"location": "Curitiba, PR, Brazil",
+			"location": "Curitiba PR, Brasil",
 			"dates": "September 2009 - Current",
 			"description": "Create and maintain reports using IBM Cognos Report Studio and IBM Cognos TM1<br>Create and maintain dimensional data model in Oracle<br>Developer ETL process using SQLPLUS and BatchScript<br>Create and maintain intranet web pages using.Net, javascript, JQuery<br>Improve timeefficient in PLSQL process of financial calculation "
 		}
@@ -49,7 +49,7 @@ var work = {
 		{
 			"employer": "GVT Telecom",
 			"title": "Market Analyst",
-			"location": "Curitiba, PR, Brazil",
+			"location": "Curitiba PR, Brasil",
 			"dates": "April 2008 - August 2009",
 			"description": "Development processes that generate sales information for company executives<br>Implemented new analysis tools ( B.O. )<br>Development processes in low platform with MS Access and VBA<br>Develop VBA solution for Excel to final users, automation manual process"
 		}
@@ -57,7 +57,7 @@ var work = {
 		{
 			"employer": "HSBC Bank",
 			"title": "Financial Analyst",
-			"location": "Curitiba, PR, Brazil",
+			"location": "Curitiba PR, Brasil",
 			"dates": "January 2007 - April 2008",
 			"description": "Control, generation and maintenance of financial information<br>Participation in development projects related to IT / Finance<br>Development and automation excel spreadsheets using VBA"
 		}		
@@ -87,24 +87,18 @@ var proj = {
 //$("#header").append(HTMLcontactGeneric);
 $("#main").append(internationalizeButton);
 
-displayBio();
-displayWork();
-displayProjects();
-displaySchool();
 
-
-
-function displayProjects(){
-	$("#projects").append(HTMLprojectStart);
+proj.display = function(){
 	for(p in proj.projects){
-		$(".project-entry").append(HTMLprojectTitle.replace("%data%",proj.projects[p].title ));
-		$(".project-entry").append(HTMLprojectDates.replace("%data%",proj.projects[p].dates ));
-		$(".project-entry").append(HTMLprojectDescription.replace("%data%",proj.projects[p].descripttion ));
-		$(".project-entry").append(HTMLprojectImage.replace("%data%",proj.projects[p].images ));
+		$("#projects").append(HTMLprojectStart);
+		$(".project-entry:last").append(HTMLprojectTitle.replace("%data%",proj.projects[p].title ));
+		$(".project-entry:last").append(HTMLprojectDates.replace("%data%",proj.projects[p].dates ));
+		$(".project-entry:last").append(HTMLprojectDescription.replace("%data%",proj.projects[p].descripttion ));
+		$(".project-entry:last").append(HTMLprojectImage.replace("%data%",proj.projects[p].images ));
 	}
 }
 
-function displaySchool(){
+education.display = function(){
 	var formattedSchoolStart 	= HTMLschoolStart
 	var formattedSchoolName 	= HTMLschoolName.replace("%data%", education.schools[0].name )
 	var formattedSchoolDegree 	= HTMLschoolDegree.replace("%data%", education.schools[0].degree)
@@ -120,11 +114,16 @@ function displaySchool(){
 	$(".education-entry").append(formattedSchoolMajor);
 }
 
-function displayBio(){
+bio.display = function(){
 
 	//	* header
 	$("#header").prepend( HTMLheaderRole.replace("%data%",bio.role) );
 	$("#header").prepend( HTMLheaderName.replace("%data%",bio.name) );
+
+	//	* pic /Welcome message
+	$("#header").append(HTMLbioPic.replace("%data%",bio.biopic));
+	$("#header").append(HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage));
+
 
 	//  * topContacts
 	//$("#topContacts").append(HTMLcontactGeneric);
@@ -133,9 +132,7 @@ function displayBio(){
 	$("#topContacts").append( HTMLgithub.replace("%data%",bio.contacts.github));
 	$("#topContacts").append( HTMLlocation.replace("%data%",bio.contacts.locations));
 	
-	//	* pic /Welcome message
-	$("#header").append(HTMLbioPic.replace("%data%",bio.biopic));
-	$("#header").append(HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage));
+
 
 	// * Skills
 	$("#header").append(HTMLskillsStart);
@@ -144,7 +141,7 @@ function displayBio(){
 	}
 }
 
-function displayWork(){
+work.display = function(){
 	for (job in work.jobs){
 		//create div "work-entry"
 		$("#workExperience").append(HTMLworkStart);
@@ -187,10 +184,26 @@ function inName(strName){
 }
 
 
-/*
-var formatedName = HTMLheaderName.replace("%data%","André");
-var formattedRole = HTMLheaderRole.replace("%data%","Web Developer");
 
+
+
+
+
+//Function Calls
+bio.display();
+work.display();
+proj.display();
+education.display();
+
+
+
+
+$("#mapDiv").append(googleMap);
+
+
+
+
+/*
 $("#header").prepend(formattedRole);
 $("#header").prepend(formatedName);
 */
