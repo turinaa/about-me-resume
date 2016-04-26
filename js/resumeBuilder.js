@@ -5,7 +5,7 @@ var bio = {
 		 "mobile":"+55 41 99151243"
 		,"email":"turinaa@gmail.com"
 		,"github":"turinaa"
-		,"location":"São Paulo, Brazil"
+		,"location":"Curitiba, Brazil"
 	}
 	,"welcomeMessage":"Hello Internet"
 	,"skills":["A","B"]
@@ -85,7 +85,7 @@ var proj = {
 
 
 //$("#header").append(HTMLcontactGeneric);
-$("#main").append(internationalizeButton);
+//$("#main").append(internationalizeButton);
 
 
 proj.display = function(){
@@ -130,7 +130,7 @@ bio.display = function(){
 	$("#topContacts").append( HTMLmobile.replace("%data%",bio.contacts.mobile));
 	$("#topContacts").append( HTMLemail.replace("%data%",bio.contacts.email));
 	$("#topContacts").append( HTMLgithub.replace("%data%",bio.contacts.github));
-	$("#topContacts").append( HTMLlocation.replace("%data%",bio.contacts.locations));
+	$("#topContacts").append( HTMLlocation.replace("%data%",bio.contacts.location));
 	
 
 
