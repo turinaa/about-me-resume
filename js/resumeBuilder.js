@@ -112,6 +112,16 @@ education.display = function(){
 	$(".education-entry").append(formattedSchoolDates);
 	$(".education-entry").append(formattedSchoolLocation);
 	$(".education-entry").append(formattedSchoolMajor);
+	
+	var formattedOnlineTitle 	= HTMLonlineTitle.replace("%data%", education.onlineCourses[0].title);
+	var formattedOnlineSchool 	= HTMLonlineSchool.replace("%data%", education.onlineCourses[0].school);
+	var formattedOnlineDate 	= HTMLonlineDates.replace("%data%", education.onlineCourses[0].date);
+	var formattedOnlineUrl 		= HTMLonlineURL.replace("%data%", education.onlineCourses[0].url);
+
+	$(".education-entry").append(HTMLonlineClasses);
+	$(".education-entry").append(formattedOnlineTitle+formattedOnlineSchool);
+	$(".education-entry").append(formattedOnlineDate);
+	$(".education-entry").append(formattedOnlineUrl);	
 }
 
 bio.display = function(){
