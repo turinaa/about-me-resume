@@ -29,10 +29,17 @@ var education ={
 	"onlineCourses":[
 		{
 			"title": "JavaScript Basics"
-            ,"school": "Udacity"
-            ,"date": 2016
-            ,"url": "www.udacity.com"
+            		,"school": "Udacity"
+            		,"date": 2016
+            		,"url": "www.udacity.com"
 		}
+		,
+		{
+			"title": "Android Development for Beginners"
+            		,"school": "Udacity"
+            		,"date": 2015
+            		,"url": "www.udacity.com"
+		}		
 	]
 };
 
