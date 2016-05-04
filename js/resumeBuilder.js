@@ -5,10 +5,10 @@ var bio = {
 		 "mobile":"+55 41 99151243"
 		,"email":"turinaa@gmail.com"
 		,"github":"turinaa"
-		,"location":"São Paulo, Brazil"
+		,"location":["São Paulo, Brazil"]
 	}
 	,"welcomeMessage":"Hello Internet"
-	,"skills":["A","B"]
+	,"skills":[]
 	,"biopic":"images/fry.jpg"
 };
 
@@ -21,25 +21,25 @@ var education ={
 	        ,"majors": "Systems Analysis and Development"
 	        ,"dates": 2014
 	        ,"url": "www.ctup.edu.br"
-
 		}
-
 	]
 	,
 	"onlineCourses":[
 		{
 			"title": "JavaScript Basics"
-            		,"school": "Udacity"
-            		,"date": 2016
-            		,"url": "www.udacity.com"
+            ,"school": "Udacity"
+            ,"date": 2016
+            ,"url": "www.udacity.com"
 		}
-		,
+
+	,
+
 		{
 			"title": "Android Development for Beginners"
-            		,"school": "Udacity"
-            		,"date": 2015
-            		,"url": "www.udacity.com"
-		}		
+            ,"school": "Udacity"
+            ,"date": 2015
+            ,"url": "www.udacity.com"
+		}
 	]
 };
 
@@ -75,25 +75,27 @@ var proj = {
 
 	"projects":[
 		{
-			 "title":"Project 1"
+			 "title":"HSBC - Finance Intranet Portal"
 			,"dates": 2015
-			,"descripttion":"Implement internal web page using dynatree an Json"
+			,"descripttion":"Improve intranet pages to manage cost centers and finance accounts"
 			,"images":""
 		}
 		,
 		{
-			 "title":"Project 2"
-			,"dates": 2015
-			,"descripttion":"Implement internal web page using dynatree an Json"
+			 "title":"HSBC - Calculation Engine"
+			,"dates": 2014
+			,"descripttion":"We have created a calculation engine to provide taxes calculation, values allocation and regulatory calculation"
+			,"images":""
+		}		
+		,
+		{
+			 "title":"HSBC - Finance BI Project"
+			,"dates": 2012
+			,"descripttion":"Implement a BI solution in finance department to provide data to Month Closing, sales forecast and anual operating plan."
 			,"images":""
 		}
 	]
 };
-
-
-//$("#header").append(HTMLcontactGeneric);
-//$("#main").append(internationalizeButton);
-
 
 proj.display = function(){
 	for(p in proj.projects){
@@ -106,6 +108,7 @@ proj.display = function(){
 }
 
 education.display = function(){
+
 	var formattedSchoolStart 	= HTMLschoolStart
 	var formattedSchoolName 	= HTMLschoolName.replace("%data%", education.schools[0].name )
 	var formattedSchoolDegree 	= HTMLschoolDegree.replace("%data%", education.schools[0].degree)
@@ -119,13 +122,15 @@ education.display = function(){
 	$(".education-entry").append(formattedSchoolDates);
 	$(".education-entry").append(formattedSchoolLocation);
 	$(".education-entry").append(formattedSchoolMajor);
-	
+
 	$(".education-entry").append(HTMLonlineClasses);
 	for (online in education.onlineCourses){
+
 		var formattedOnlineTitle 	= HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
 		var formattedOnlineSchool 	= HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
 		var formattedOnlineDate 	= HTMLonlineDates.replace("%data%", education.onlineCourses[online].date);
 		var formattedOnlineUrl 		= HTMLonlineURL.replace("%data%", education.onlineCourses[online].url);
+		
 		$(".education-entry").append(formattedOnlineTitle+formattedOnlineSchool);
 		$(".education-entry").append(formattedOnlineDate);
 		$(".education-entry").append(formattedOnlineUrl);
@@ -140,8 +145,7 @@ bio.display = function(){
 
 	//	* pic /Welcome message
 	$("#header").append(HTMLbioPic.replace("%data%",bio.biopic));
-	$("#header").append(HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage));
-
+	//$("#header").append(HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage));
 
 	//  * topContacts
 	//$("#topContacts").append(HTMLcontactGeneric);
@@ -149,14 +153,12 @@ bio.display = function(){
 	$("#topContacts").append( HTMLemail.replace("%data%",bio.contacts.email));
 	$("#topContacts").append( HTMLgithub.replace("%data%",bio.contacts.github));
 	$("#topContacts").append( HTMLlocation.replace("%data%",bio.contacts.location));
-	
-
 
 	// * Skills
-	$("#header").append(HTMLskillsStart);
-	for (var i in bio.skills){
-		$("#skills").append( HTMLskills.replace( "%data%" , bio.skills[i] ) );
-	}
+	//$("#header").append(HTMLskillsStart);
+	//for (var i in bio.skills){
+	//	$("#skills").append( HTMLskills.replace( "%data%" , bio.skills[i] ) );
+	//}
 }
 
 work.display = function(){
