@@ -9,7 +9,7 @@ var bio = {
 	}
 	,"welcomeMessage":"Hello Internet"
 	,"skills":[]
-	,"biopic":"images/fry.jpg"
+	,"biopic":"images/turina.jpg"
 };
 
 var education ={
@@ -77,7 +77,7 @@ var proj = {
 		{
 			 "title":"HSBC - Finance Intranet Portal"
 			,"dates": 2015
-			,"descripttion":"Improve intranet pages to manage cost centers and finance accounts"
+			,"descripttion":"Improve intranet pages to manage cost centers and finance accounts using javascript like Dynatree and DataTable"
 			,"images":""
 		}
 		,
