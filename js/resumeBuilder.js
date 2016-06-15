@@ -5,7 +5,7 @@ var bio = {
 		 "mobile":"+55 41 99151243"
 		,"email":"turinaa@gmail.com"
 		,"github":"turinaa"
-		,"location":["São Paulo, Brazil"]
+		,"location":["Frankfurt, Germany"]
 	}
 	,"welcomeMessage":"Hello Internet"
 	,"skills":[]
