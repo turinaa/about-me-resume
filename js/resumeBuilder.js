@@ -2,10 +2,10 @@ var bio = {
 	 "name":"André Turina"
 	,"role":"Web Developer"
 	,"contacts":{
-		 "mobile":"+55 41 99151243"
+		 "mobile":"+44 07398482956"
 		,"email":"turinaa@gmail.com"
 		,"github":"turinaa"
-		,"location":["Frankfurt, Germany"]
+		,"location":["London, UK"]
 	}
 	,"welcomeMessage":"Hello Internet"
 	,"skills":[]
