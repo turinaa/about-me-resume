@@ -47,9 +47,9 @@ var work = {
 	"jobs": [
 		{
 			"employer": "HSBC Bank",
-			"title": "Financial Specialyst",
+			"title": "BI Specialist",
 			"location": "Curitiba PR, Brasil",
-			"dates": "September 2009 - Current",
+			"dates": "September 2009 - May 2016",
 			"description": "Create and maintain reports using IBM Cognos Report Studio and IBM Cognos TM1<br>Create and maintain dimensional data model in Oracle<br>Developer ETL process using SQLPLUS and BatchScript<br>Create and maintain intranet web pages using.Net, javascript, JQuery<br>Improve timeefficient in PLSQL process of financial calculation "
 		}
 		, 
