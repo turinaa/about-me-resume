@@ -1,6 +1,6 @@
 var bio = {
 	 "name":"André Turina"
-	,"role":"Web Developer"
+	,"role":""
 	,"contacts":{
 		 "mobile":"+44 7706607084"
 		,"email":"turinaa@gmail.com"
