@@ -5,7 +5,7 @@ var bio = {
 		 "mobile":"+44 07398482956"
 		,"email":"turinaa@gmail.com"
 		,"github":"turinaa"
-		,"location":["London, UK"]
+		,"location":["Norwich, UK"]
 	}
 	,"welcomeMessage":"Hello Internet"
 	,"skills":[]
