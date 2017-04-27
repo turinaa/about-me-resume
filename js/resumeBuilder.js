@@ -46,6 +46,14 @@ var education ={
 var work = {
 	"jobs": [
 		{
+			"employer": "Self Employer(Amazon Logistics)",
+			"title": "Delivery Service Provider",
+			"location": "Norwich, Norfolk(UK)",
+			"dates": "October 2016 - Present",
+			"description": "Allocation of routes for drivers to deliver Amazon parcels in Norfolk<br>Manage the schedules and help the drivers with any issues to their routes<br>Generate reports regarding total number of parcels delivered with success, concessions and"
+		}
+		,		
+		{
 			"employer": "HSBC Bank",
 			"title": "BI Specialist",
 			"location": "Curitiba PR, Brasil",
